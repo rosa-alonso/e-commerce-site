@@ -4,13 +4,13 @@
 
 ### **Table of Contents**
 
-- E-commerce site link
+- Github Link
 - Contributing
 - Screencastify Link
 
-### E-commerce site link
+### Github link
 
-https://rosa-alonso.github.io/e-commerce-site
+https://github.com/rosa-alonso/e-commerce-site
 
 ### Contributing
 
