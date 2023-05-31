@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     const allCatergories = await Category.findAll({
       include: [Product],
     }).then((allCategories) => res.json(allCategories));
-  } catch {
+  } catch (err) {
     res.status(400).json(err);
   }
 });
@@ -21,7 +21,7 @@ router.get("/:id", async (req, res) => {
     const oneCategory = await Category.findOne(req.params.id, {
       include: [Product],
     }).then((oneCategory) => res.json(oneCategory));
-  } catch (error) {
+  } catch (err) {
     res.status(400).json(err);
   }
   // find one category by its `id` value
@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
     const newCategory = await Category.create(req.body).then((newCategory) =>
       res.json(newCategory)
     );
-  } catch (error) {
+  } catch (err) {
     res.status(400).json(err);
   }
   // create a new category
@@ -46,7 +46,7 @@ router.put("/:id", async (req, res) => {
         id: req.params.id,
       },
     }).then((categories) => res.json(categories));
-  } catch (error) {
+  } catch (err) {
     res.status(400).json(err);
   }
   // update a category by its `id` value
@@ -59,7 +59,7 @@ router.delete("/:id", async (req, res) => {
         id: req.params.id,
       },
     }).then((categories) => res.status(categories));
-  } catch (error) {
+  } catch (err) {
     res.status(400).json(err);
   }
   // delete a category by its `id` value
