@@ -121,11 +121,10 @@ router.delete("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-    });
-  } catch (error) {
+    }).then((products) => res.json(products));
+  } catch (err) {
     res.status(400).json(err);
-  }
-  // delete one product by its `id` value
+  } // delete on tag by its `id` value
 });
 
 module.exports = router;

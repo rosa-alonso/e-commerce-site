@@ -20,7 +20,7 @@ router.get("/:id", async (req, res) => {
     const oneTag = await Tag.findOne(req.params.id, {
       include: [Product],
     }).then((oneTag) => res.json(oneTag));
-  } catch (error) {
+  } catch (err) {
     res.status(400).json(err);
   }
   // find a single tag by its `id`
@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
     const newTag = await Tag.create(req.body).then((newTag) =>
       res.json(newTag)
     );
-  } catch (error) {
+  } catch (err) {
     res.status(400).json(err);
   }
   // create a new tag
@@ -45,7 +45,7 @@ router.put("/:id", async (req, res) => {
         id: req.params.id,
       },
     }).then((tags) => res.json(tags));
-  } catch (error) {
+  } catch (err) {
     res.status(400).json(err);
   } // update a tag's name by its `id` value
 });
@@ -56,8 +56,8 @@ router.delete("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-    }).then((tags) => res.status(tags));
-  } catch (error) {
+    }).then((tags) => res.json(tags));
+  } catch (err) {
     res.status(400).json(err);
   } // delete on tag by its `id` value
 });

@@ -58,7 +58,7 @@ router.delete("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-    }).then((categories) => res.status(categories));
+    }).then((categories) => res.json(categories));
   } catch (err) {
     res.status(400).json(err);
   }
